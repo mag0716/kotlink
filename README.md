@@ -8,7 +8,7 @@ Kotlin's memo
 ## Official
 
 * https://github.com/JetBrains/kotlin
-* https://github.com/JetBrains/kotlin
+* https://kotlinlang.org/docs/reference/
 * https://kotlin.link/x
 
 ## Coding Style
