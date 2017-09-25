@@ -1,10 +1,15 @@
 # kotlink
 Kotlin's memo
 
-## Link
+## 開発環境
 
-* https://kotlin.link/
-* https://kotlinlang.org/docs/reference/
+* [Try Kotlin](https://try.kotlinlang.org/#/Examples/Hello,%20world!/Simplest%20version/Simplest%20version.kt)
+
+## Official
+
+* https://github.com/JetBrains/kotlin
+* https://github.com/JetBrains/kotlin
+* https://kotlin.link/x
 
 ## Coding Style
 
@@ -16,3 +21,12 @@ Kotlin's memo
 ## Best Practice
 
 * https://blog.philipphauer.de/idiomatic-kotlin-best-practices/
+
+## Memo
+
+### to
+
+* `Pair` を生成する
+* `Map` などで利用できる
+* https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html
+* ex:`"one" to 1`
