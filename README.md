@@ -30,3 +30,7 @@ Kotlin's memo
 * `Map` などで利用できる
 * https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html
 * ex:`"one" to 1`
+
+### `!!`
+
+* https://android.jlelse.eu/how-to-remove-all-from-your-kotlin-code-87dc2c9767fb
