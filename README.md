@@ -34,3 +34,9 @@ Kotlin's memo
 ### `!!`
 
 * https://android.jlelse.eu/how-to-remove-all-from-your-kotlin-code-87dc2c9767fb
+
+### 可変長引数
+
+* `vararg`
+* 可変長引数に配列を渡す場合は、`*` を指定する
+    * `sum(*intArrayOf(1, 2, 3)`
