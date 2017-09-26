@@ -38,5 +38,8 @@ Kotlin's memo
 ### 可変長引数
 
 * [`vararg`](https://kotlinlang.org/docs/reference/functions.html#variable-number-of-arguments-varargs)
+* Java と違って一番最後の引数に指定しなくてもよい
+  * ただし、その場合は、vararg で指定した引数よりあとの引数には名前付きで指定する必要がある
+  * もしくは、後続の引数が関数型であればラムダ式で渡す
 * 可変長引数に配列を渡す場合は、`*` を指定する
     * `sum(*intArrayOf(1, 2, 3)`
