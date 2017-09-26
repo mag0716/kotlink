@@ -37,6 +37,6 @@ Kotlin's memo
 
 ### 可変長引数
 
-* `vararg`
+* [`vararg`](https://kotlinlang.org/docs/reference/functions.html#variable-number-of-arguments-varargs)
 * 可変長引数に配列を渡す場合は、`*` を指定する
     * `sum(*intArrayOf(1, 2, 3)`
