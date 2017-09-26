@@ -43,3 +43,9 @@ Kotlin's memo
   * もしくは、後続の引数が関数型であればラムダ式で渡す
 * 可変長引数に配列を渡す場合は、`*` を指定する
     * `sum(*intArrayOf(1, 2, 3)`
+    
+### infix
+
+* https://kotlinlang.org/docs/reference/functions.html#infix-notation
+* 引数が1つの関数、拡張関数に `infix` をつけることで以下の様な呼び出しができるようになる
+    * `1.shl(2)` -> `1 shl 2`
