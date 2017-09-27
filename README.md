@@ -60,7 +60,6 @@ Kotlin's memo
 * [`tailrec`](https://kotlinlang.org/docs/reference/functions.html#tail-recursive-functions) をつける必要がある
 * 内部的にはループ処理に書き換えられる
 * 引数が1つの関数、拡張関数に `infix` をつけることで以下の様な呼び出しができるようになる
-* 引数が1つの関数、拡張関数に `infix` をつけることで以下の様な呼び出しができるようになる
 
 ### ローカル関数
 
