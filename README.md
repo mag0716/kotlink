@@ -65,3 +65,4 @@ Kotlin's memo
 * 関数内に関数を定義できる
 * ただし、ローカル関数では `inline` の指定はまだ出来ない
 * また、ラベル付き `return` でローカル関数外への `return` もできない
+    * https://discuss.kotlinlang.org/t/return-from-outer-function/590/8
