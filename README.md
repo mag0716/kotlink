@@ -66,3 +66,12 @@ Kotlin's memo
 * ただし、ローカル関数では `inline` の指定はまだ出来ない
 * また、ラベル付き `return` でローカル関数外への `return` もできない
     * https://discuss.kotlinlang.org/t/return-from-outer-function/590/8
+
+## 高階関数
+
+* https://kotlinlang.org/docs/reference/lambdas.html#higher-order-functions
+* 引数や戻り値に利用する関数
+* `::` を指定して渡すかラムダ式を利用する
+* 最後の引数が関数なら`()` の外に `{}` 内にラムダ式を記載できる
+  * `lock(lock, { method() })` -> `lock(lock) { method() }`
+  
