@@ -75,3 +75,26 @@ Kotlin's memo
 * 最後の引数が関数なら`()` の外に `{}` 内にラムダ式を記載できる
   * `lock(lock, { method() })` -> `lock(lock) { method() }`
   
+## インライン関数
+
+* https://kotlinlang.org/docs/reference/inline-functions.html
+* 引数として渡した関数がコンパイル時に展開される仕組み
+* `inline` を指定する
+* コードが大きくなるデメリットはあるが、パフォーマンスが向上する
+    * ループ処理内で利用している関数で効果を発揮する
+* インライン関数内では private な変数やメソッドにはアクセスできない
+  * `internal` と `@PublishedApi` の指定が必要
+
+### `noinline`
+
+* インライン関数の引数のラムダを展開させたくない場合に指定する
+* ラベル付き `return` は利用できなくなる
+
+### `crossinline`
+
+* インライン関数内で引数のラムダを別の関数で利用する場合に指定する
+
+### 参考
+
+* http://hydrakecat.hatenablog.jp/entry/2015/12/08/Kotlin_Inline_Functions
+* https://android.jlelse.eu/inline-noinline-crossinline-what-do-they-mean-b13f48e113c2
