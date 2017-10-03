@@ -98,3 +98,9 @@ Kotlin's memo
 
 * http://hydrakecat.hatenablog.jp/entry/2015/12/08/Kotlin_Inline_Functions
 * https://android.jlelse.eu/inline-noinline-crossinline-what-do-they-mean-b13f48e113c2
+
+## 無名関数
+
+* https://kotlinlang.org/docs/reference/lambdas.html#anonymous-functions
+* `()` 内に渡す必要があり、ラムダ式とは異なり、`{}` 内に実装することはできない
+* ラムダ式との違いは非ローカルリターンができないこと
