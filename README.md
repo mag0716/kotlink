@@ -104,3 +104,15 @@ Kotlin's memo
 * https://kotlinlang.org/docs/reference/lambdas.html#anonymous-functions
 * `()` 内に渡す必要があり、ラムダ式とは異なり、`{}` 内に実装することはできない
 * ラムダ式との違いは非ローカルリターンができないこと
+
+## コンストラクタ
+
+* https://kotlinlang.org/docs/reference/classes.html#constructors
+* コンストラクタに可視性修飾子やアノテーションをつけない場合は `constructor` は省略可能
+* 引数に `val`, `var` をつけるとプロパティとして扱える
+
+### セカンダリコンストラクタ
+
+* `constructor` で定義する
+* プライマリコンストラクタを呼び出す場合は `this` を使用する
+* セカンダリコンストラクタでは、`val`, `var` の指定ができない
