@@ -116,3 +116,17 @@ Kotlin's memo
 * `constructor` で定義する
 * プライマリコンストラクタを呼び出す場合は `this` を使用する
 * セカンダリコンストラクタでは、`val`, `var` の指定ができない
+
+## 継承
+
+* https://kotlinlang.org/docs/reference/classes.html#inheritance
+* 継承を可能にするためには親クラスに `open` を指定する必要がある
+* デフォルトでは継承不可(Java での `final` が付いた状態)
+
+### オーバライド
+
+* 親クラスのメソッドに `open` を指定する
+* 子クラスでは `override` を指定してオーバライドする
+* プロパティもオーバライドできる
+  * `val` のプロパティを `var` としてオーバライド可能
+* 同じ名前のメソッドを定義している複数のクラス、インタフェースを継承した場合は、`super<ClassName>.method()` で呼び出し先を指定できる
