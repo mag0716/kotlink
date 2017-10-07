@@ -130,3 +130,10 @@ Kotlin's memo
 * プロパティもオーバライドできる
   * `val` のプロパティを `var` としてオーバライド可能
 * 同じ名前のメソッドを定義している複数のクラス、インタフェースを継承した場合は、`super<ClassName>.method()` で呼び出し先を指定できる
+
+## インタフェース
+
+* https://kotlinlang.org/docs/reference/interfaces.html
+* `interface`
+* 実装を持ったメソッドを定義することができる
+* バッキングフィールドを持つことはできない
