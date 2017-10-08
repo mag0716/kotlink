@@ -137,3 +137,17 @@ Kotlin's memo
 * `interface`
 * 実装を持ったメソッドを定義することができる
 * バッキングフィールドを持つことはできない
+
+## クラスデリゲーション
+
+* https://kotlinlang.org/docs/reference/delegation.html
+* コンストラクタで実装を渡し、インタフェース部分に `by` で引数で渡した名前を指定する
+* この様に実装する事で override したい部分だけ実装して、あとはコンストラクタで渡したクラスに委譲することができる
+* プライマリコンストラクタでしか利用できない
+
+## 委譲プロパティ
+
+* https://kotlinlang.org/docs/reference/delegated-properties.html
+* プロパティ定義の型の後に `by` でオブジェクトを指定する
+* 渡したオブジェクトは `getValue`, `setValue` を実装する必要がある
+* [`Delegates`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/) に委譲プロパティを生成するメソッドがデフォルトで用意されている
