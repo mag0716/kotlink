@@ -151,3 +151,20 @@ Kotlin's memo
 * プロパティ定義の型の後に `by` でオブジェクトを指定する
 * 渡したオブジェクトは `getValue`, `setValue` を実装する必要がある
 * [`Delegates`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/) に委譲プロパティを生成するメソッドがデフォルトで用意されている
+## ジェネリクス
+
+* https://kotlinlang.org/docs/reference/generics.html
+* 同じ型パラメータに複数の制限を持たせる場合は `where` を利用する
+
+### 変位指定
+
+* 不変
+  * デフォルト
+* 共変
+  * `out`
+* 反変
+  * `in`
+
+### 参考
+
+* http://kotlin.hatenablog.jp/entry/2012/12/17/234300
