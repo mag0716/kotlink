@@ -151,7 +151,8 @@ Kotlin's memo
 * プロパティ定義の型の後に `by` でオブジェクトを指定する
 * 渡したオブジェクトは `getValue`, `setValue` を実装する必要がある
 * [`Delegates`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/) に委譲プロパティを生成するメソッドがデフォルトで用意されている
-## ジェネリクス
+
+## ★ジェネリクス
 
 * https://kotlinlang.org/docs/reference/generics.html
 * 同じ型パラメータに複数の制限を持たせる場合は `where` を利用する
@@ -165,6 +166,22 @@ Kotlin's memo
 * 反変
   * `in`
 
-### 参考
+#### 参考
 
 * http://kotlin.hatenablog.jp/entry/2012/12/17/234300
+
+### スター投影
+
+* https://kotlinlang.org/docs/reference/generics.html#star-projections
+* `*`
+* `in Nothing` や `out Any?` のシンタックスシュガー 
+
+### 具象型
+
+* https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters_
+* `reified`
+* 必ずインライン関数で利用する
+
+#### 参考
+
+* http://sys1yagi.hatenablog.com/entry/2016/05/18/170745
