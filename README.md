@@ -185,3 +185,13 @@ Kotlin's memo
 #### 参考
 
 * http://sys1yagi.hatenablog.com/entry/2016/05/18/170745
+
+## 安全キャスト
+
+* https://kotlinlang.org/docs/reference/typecasts.html#safe-nullable-cast-operator
+* `as?`
+* キャストに失敗したら `null` が返却される
+
+### safeCast
+
+* https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/safe-cast.html
