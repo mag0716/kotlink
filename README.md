@@ -195,3 +195,19 @@ Kotlin's memo
 ### safeCast
 
 * https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/safe-cast.html
+
+## 演算子オーバーロード
+
+* https://kotlinlang.org/docs/reference/operator-overloading.html
+
+### `invoke`
+
+* `invoke` をオーバーロードするとオブジェクト自体が関数の様に呼び出すことができようになる
+
+## 分解宣言
+
+*  https://kotlinlang.org/docs/reference/multi-declarations.html
+* `componentN` という関数を持っているオブジェクトオブジェクトで利用できる
+* for ループなどでも利用できる
+    * `for ((a, b) in collection) { ... }`
+* 利用しない値がある場合は、`_` を定義する
