@@ -211,3 +211,15 @@ Kotlin's memo
 * for ループなどでも利用できる
     * `for ((a, b) in collection) { ... }`
 * 利用しない値がある場合は、`_` を定義する
+
+## `object`, `companion object`
+
+* https://kotlinlang.org/docs/reference/object-declarations.html
+* 匿名クラスの定義
+* シングルトンなクラス
+* static メンバの定義
+  * `companion object`
+
+### 参考
+
+* https://yyyank.blogspot.jp/2017/03/kotlinstaticwhy-doesnt-kotlin-have.html
