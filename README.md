@@ -223,3 +223,12 @@ Kotlin's memo
 ### 参考
 
 * https://yyyank.blogspot.jp/2017/03/kotlinstaticwhy-doesnt-kotlin-have.html
+
+## `sealed`
+
+* https://kotlinlang.org/docs/reference/sealed-classes.html
+* 継承可能範囲を同じファイルに記述されたクラスに制限する(1.1で変更)
+  * 自動的に abstract になるので、直接インスタンスを生成できない
+  * abstract なメンバーも持てない
+  * private でないコンストラクタを持つことはできない
+  * `when` 式で利用すると `else` 式は定義しなくてよい
