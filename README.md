@@ -26,6 +26,31 @@ Kotlin's memo
 
 * https://sys1yagi.gitbooks.io/anatomy-kotlin/content/
 
+## バージョンアップ
+
+### 1.1
+
+* https://kotlinlang.org/docs/reference/whatsnew11.html
+* JavaScript サポート
+* コルーチン(experimental)
+  * `async`, `await`
+* Type aliases
+  * `typealias`
+* Bound callable references
+  * `::`
+* `sealed` に関する一部の制限の削除
+* Destructuring in lambdas
+* Lambda の不要なパラメータへの `_` 宣言
+* 数の記述に `_` の利用が可能になった
+  * `val oneMillion = 1_000_000
+* プロパティのアクセスに `inline` の利用が可能になった
+* ローカル変数への delegated property の利用
+* `provideDelegate`
+* `@DslMarker`
+* `mod` -> `rem`
+* 標準ライブラリにメソッドが追加
+  * [Kotlin 1.1で追加された標準ライブラリの関数をざっくり見る](http://sys1yagi.hatenablog.com/entry/2017/03/20/165627)
+
 ## Memo
 
 ### to
