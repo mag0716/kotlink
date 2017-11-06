@@ -13,6 +13,7 @@ Kotlin's memo
 
 ## Coding Style
 
+* https://android.github.io/kotlin-guides/style.html
 * https://kotlinlang.org/docs/reference/coding-conventions.html
 * https://github.com/raywenderlich/kotlin-style-guide
 * https://github.com/openfresh/android-kotlin-style-guide
