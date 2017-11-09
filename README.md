@@ -258,3 +258,11 @@ Kotlin's memo
   * abstract なメンバーも持てない
   * private でないコンストラクタを持つことはできない
   * `when` 式で利用すると `else` 式は定義しなくてよい
+  
+### Java との連携
+
+#### @JvmOverloads
+
+* https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/
+* 通常はデフォルト引数を持った関数を Java から呼び出す際は全ての引数を指定する必要がある
+* @JvmOverlaods を定義すると、デフォルト引数を指定が不要な関数が生成され、Java から利用可能になる
