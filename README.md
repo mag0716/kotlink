@@ -73,6 +73,7 @@ Kotlin's memo
   * もしくは、後続の引数が関数型であればラムダ式で渡す
 * 可変長引数に配列を渡す場合は、`*` を指定する
     * `sum(*intArrayOf(1, 2, 3)`
+    * spread operator と呼ばれる機能
     
 ### infix
 
