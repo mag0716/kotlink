@@ -259,6 +259,13 @@ Kotlin's memo
   * abstract なメンバーも持てない
   * private でないコンストラクタを持つことはできない
   * `when` 式で利用すると `else` 式は定義しなくてよい
+
+## lazy
+
+* https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/lazy.html
+* 遅延初期化
+* デフォルトでスレッドセーフ(LazyThreadSafetyMode.SYNCHRONIZED)
+  * マルチスレッドでアクセスしないのであれば、不要な処理時間がかかってしまうので注意
   
 ### Java との連携
 
