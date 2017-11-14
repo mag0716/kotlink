@@ -19,6 +19,10 @@ Kotlin's memo
 * https://github.com/openfresh/android-kotlin-style-guide
 * https://engineering.vokal.io/Android/KOTLIN.md.html
 
+## Lint
+
+* https://ktlint.github.io/
+
 ## Best Practice
 
 * https://blog.philipphauer.de/idiomatic-kotlin-best-practices/
