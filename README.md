@@ -266,6 +266,15 @@ Kotlin's memo
 * 遅延初期化
 * デフォルトでスレッドセーフ(LazyThreadSafetyMode.SYNCHRONIZED)
   * マルチスレッドでアクセスしないのであれば、不要な処理時間がかかってしまうので注意
+
+## ネストされたクラスと内部クラス
+
+* ネストクラス：外部クラスの参照を保持しない
+  * Java：`static class`
+  * Kotlin：デフォルト
+* 内部クラス：外部クラスの参照を保持する
+  * Java：デフォルト
+  * Kotlin：`inner class`
   
 ### Java との連携
 
