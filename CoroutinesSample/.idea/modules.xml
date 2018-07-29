@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoroutinesSample.iml" filepath="$PROJECT_DIR$/.idea/modules/CoroutinesSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoroutinesSample_main.iml" filepath="$PROJECT_DIR$/.idea/modules/CoroutinesSample_main.iml" group="CoroutinesSample" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoroutinesSample_test.iml" filepath="$PROJECT_DIR$/.idea/modules/CoroutinesSample_test.iml" group="CoroutinesSample" />
+    </modules>
+  </component>
+</project>
