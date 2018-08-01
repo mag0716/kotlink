@@ -44,3 +44,28 @@
 * デーモンスレッドの様に coroutine が終了すると、他の coroutine も終了する
 
 ## Cancellation and timeouts
+
+### Cancelling coroutine execution
+
+* `Job#cancel`
+  * キャンセルするとすぐに、他の coroutine の処理は実行されない
+  * 拡張関数である `Job#cancelAndJoin` で `cancel` と `join` を実行する
+
+### Cancellation is cooperative
+
+* 中断関数は全てキャンセル可能
+* coroutine 内の処理でキャンセルされたかどうかをチェックしない場合は、処理自体を取り消すことはできない
+
+### Making computation code cancellable
+
+* coroutine 内の処理をキャンセルする
+  * 定期的に中断をチェックする中断関数を呼び出す
+    * `yield`
+  * キャンセルステータスを明示的にチェックする
+    * `CoroutieScope.isActive`
+
+### Closing resources with finally
+
+* キャンセル可能な中断関数は、`CancellationException` をスローする
+  * try - catch - finally の `finally` や `use` の終了処理が実行される
+* `Job#join` は終了処理が完了するまで待機する
