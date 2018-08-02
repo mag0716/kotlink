@@ -69,3 +69,17 @@
 * キャンセル可能な中断関数は、`CancellationException` をスローする
   * try - catch - finally の `finally` や `use` の終了処理が実行される
 * `Job#join` は終了処理が完了するまで待機する
+
+### Run non-cancellable block
+
+* finally 句で、中断関数を呼び出すこともできる
+  * `withContext` と `NonCancellable` を使うことで可能
+
+### Timeout
+
+* `withTimeout` で指定時間を超えたらタイムアウトする coroutine を開始することができる
+* タイムアウトになったら `TimeoutCancellationException` が発生する
+  * `CancellationException` のサブクラス
+  * try - catch でハンドリングすることも可能
+  * `withTimeoutOrNull` でタイムアウトしたら null を取得するようにもできる
+    * 内部で `suspendCoroutineUninterceptedOrReturn` を使っている
