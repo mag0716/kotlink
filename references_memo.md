@@ -148,3 +148,43 @@
   * さらに詳しい情報は [newCoroutineContext](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/new-coroutine-context.html) を参考にする
 
 #### Jumping between threads
+
+* 1つの coroutine 内で `withContext` を使ってコンテキストを切り替えることができる
+  * 実行している coroutine 自体は変わらない
+
+#### Job in the context
+
+* `Job` は コンテキストの一部
+* coroutine は `coroutineContext` を使って自身のコンテキストから検索することが可能
+* `isActive`
+  * `couroutineContext[Job]?.isActive == true`
+
+#### Children of a coroutine
+
+* `coroutineContext` が他の coroutine　の起動に使われるとき、新しい coroutine の `Job` は子供として作成される
+  * 親の coroutine がキャンセルされたら、子供の coroutine も再帰的にキャンセルされる
+
+#### Combining contexts
+
+* coroutine のコンテキストは `+` を使って結合することが可能
+* `coroutineContext + CommonPool`
+  * CommonPool で CPU-intensive な子供の Job を生成する
+  * 親のコンテキストを継承するので、親がキャンセルされた時にキャンセルすることができる
+
+#### Parental responsibilities
+
+* 親の coroutine は常に子供の完了を待機する
+* 子の coroutine の全てを追う必要はなく、`Job#join` を利用する必要はない
+
+#### Naming coroutines for debugging
+
+* 自動的にアサインされる ID はデバッグには便利
+* coroutine が特定の要求の処理やバックグランドタスクの場合は、明示的に名前を指定するとよい
+  * `CoroutineName`
+  * デバッグモードが有効になっている場合に出力される
+
+#### Cancellation via explicit job
+
+* `launch(coroutineContext, parent = job)`
+  * 指定した `Job` をキャンセルすることで、coroutine もキャンセルすることが可能
+* Android アプリでは、Activity 生成時に `Job` を生成し、Activity が破棄されたときにキャンセルすればよい
