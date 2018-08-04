@@ -83,3 +83,31 @@
   * try - catch でハンドリングすることも可能
   * `withTimeoutOrNull` でタイムアウトしたら null を取得するようにもできる
     * 内部で `suspendCoroutineUninterceptedOrReturn` を使っている
+
+### Composing suspending functions
+
+#### Sequential by default
+
+* 中断関数の実行はデフォルトではシーケンシャルに実行される
+* `measureTimeMills`
+  * 処理にかかった時間を計測をしてくれる
+
+#### Concurrent using async
+
+* 複数の中断関数をパラレルで実行するには `async` を利用する
+  * `async` は `launch` の様に coroutine を開始するが、`launch` と違って結果を取得することができる
+    * `Job` でなく `Deferred` が返される
+  * `Deferred#await` で結果を取得できる
+    * `Job` と同じくキャンセルもできる
+
+#### Lazily started async
+
+* `async` の `start` パラメータに `CoroutineStart.LAZY` を渡すことで開始タイミングを逝去できる
+  * `Deferred#start` に開始される
+  * `Deferred#await` でも開始されるが、並列での実行ができなくなる
+
+#### Async-style functions
+
+* `async` を使って関数を定義することもできる
+  * suffix に Async をつけるのがよい
+* 中断関数ではないのでどこからでも呼び出せるが、結果を受け取るには、中断関数である `await` が必要になるので、coroutine は必要になる
