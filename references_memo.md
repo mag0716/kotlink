@@ -111,3 +111,40 @@
 * `async` を使って関数を定義することもできる
   * suffix に Async をつけるのがよい
 * 中断関数ではないのでどこからでも呼び出せるが、結果を受け取るには、中断関数である `await` が必要になるので、coroutine は必要になる
+
+### Coroutine context and dispatchers
+
+* coroutine は常に CoroutineContext 型で指定されるコンテキストで実行される
+* コンテキストの主な要素は `Job` と `Dispatcher`
+
+#### Dispatchers and threads
+
+* coroutine のコンテキストには `CoroutineDispatcher` が含まれている
+* ディスパッチャーは coroutine の実行するスレッドを限定したり、スレッドプールに非同期で実行させたりすることが可能
+* `launch` は `async` のような coroutine のビルダーには、ディスパッチャーを指定できるように `CoroutineContext` を指定することができる
+* デフォルトでは `DefaultDispatcher` が利用されている
+  * サンプルの実装での `CommonPool` と同じ
+* `newSingleThreadContext` は新しいスレッドを作成するが、expensive なリソースなので注意が必要
+  * 実際のアプリでは `close` で解放するか、アプリ全体で再利用する必要がある
+
+#### Unconfined vs confined dispatcher
+
+* `Unconfined`
+  * 中断関数までは coroutine が開始されたスレッドで呼び出されるが、中断関数後は中断関数で決定されたスレッド再開される
+  * CPU 時間を消費しない場合や UI などを更新しない場合に適切
+* `coroutineContext`
+  * `CoroutineScope` を介して、coroutine のブロック内で利用できるプロパティ
+  * 親のコンテキストを継承できる
+  * `runBlocking` では、呼び出し側スレッドに限定されているため、FIFO でスケジューリングされる
+
+#### Debugging coroutines and threads
+
+* coroutine はスレッドの中断と `Uniconfined`　やデフォルトのディスパッチャーで他のスレッドの再開をすることができる
+* 1つのスレッドでさえ、どこで、いつ動作しているのかを図示するのは困難
+* スレッドを利用するアプリのデバッグの共通の方法はログを出力すること
+* kotlinx.coroutines に coroutine のデバッグを容易にする機能が用意されている
+  * `-Dkotlinx.coroutines.debug` をつけて実行すると、どの coroutine で実行が分かりやすくなる
+  * coroutine#1 のような追加情報が出力される
+  * さらに詳しい情報は [newCoroutineContext](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/new-coroutine-context.html) を参考にする
+
+#### Jumping between threads
