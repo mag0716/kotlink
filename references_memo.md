@@ -188,3 +188,27 @@
 * `launch(coroutineContext, parent = job)`
   * 指定した `Job` をキャンセルすることで、coroutine もキャンセルすることが可能
 * Android アプリでは、Activity 生成時に `Job` を生成し、Activity が破棄されたときにキャンセルすればよい
+
+### Channels
+
+* `Deferred` は coroutine 間で1つの値を送信する方法を提供する
+* Channels はストリームを送信する方法を提供する
+
+#### Channel basics
+
+* `BlockingQueue` の概念と似ている
+  * 違いは、put -> send, take -> receive
+
+#### Closing and iteration over channels
+
+* キューと違って、Channels は明示的に閉じることが可能
+  * `close`
+  * 概念的には、特別なトークンを Channels に送信する
+  * `for(value in channel)`
+    * トークンを受け取るとすぐにループが終了する
+
+#### Building channel producers
+
+* coroutine が要素のシーケンスを生成するパターンは Producer-Consumer パターンの一部
+  * `produce`, `consumeEach` を使って実装することができる
+  * `produce` は coroutine ビルダー
