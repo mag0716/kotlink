@@ -212,3 +212,19 @@
 * coroutine が要素のシーケンスを生成するパターンは Producer-Consumer パターンの一部
   * `produce`, `consumeEach` を使って実装することができる
   * `produce` は coroutine ビルダー
+
+#### Pipelines
+
+* Pipeline は無限の値のストリームを生成するパターン
+* coroutine はデーモンスレッドのようなものなのでキャンセルする必要はないが、大きなアプリでは明示的に停止した方がよい
+
+#### Prime numbers with pipeline
+
+* `cancelChildren`
+  * すべての子 coroutine をキャンセルする拡張関数
+* `builderIterator` で同じような実装ができる
+  * `produce` -> `buildIterator`
+  * `send` -> `yield`
+  * `receive` -> `next`
+  * `ReceiveChannel` -> `Iterator`
+* `CommonPool` コンテキストで実行すると、複数の CPUコアを利用できる
