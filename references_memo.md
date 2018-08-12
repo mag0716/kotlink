@@ -228,3 +228,13 @@
   * `receive` -> `next`
   * `ReceiveChannel` -> `Iterator`
 * `CommonPool` コンテキストで実行すると、複数の CPUコアを利用できる
+
+#### Fan-out
+
+* 複数のコルーチンが同じチャネルから受信し、コルーチンで作業を分散することができる
+* プロデューサのコルーチンをキャンセルするとそのチャネルが閉じられ、最終的にプロセッサのコルーチンが行なっているチャネルでの繰り返しが終了する
+* Also, pay attention to how we explicitly iterate over channel with for loop to perform fan-out in launchProcessor code. Unlike consumeEach, this for loop pattern is perfectly safe to use from multiple coroutines. If one of the processor coroutines fails, then others would still be processing the channel, while a processor that is written via consumeEach always consumes (cancels) the underlying channel on its normal or abnormal termination.
+
+#### Fan-in
+
+* 複数のコルーチンは複数のチャネルに送信することができる
