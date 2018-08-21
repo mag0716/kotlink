@@ -248,7 +248,7 @@
   * バッファーは `BlockingQueue` のように中断前に複数の要素を送信できるようにする
   * バッファーがいっぱいになるとブロックされる
 
-#### Ticker channels
+#### ？Ticker channels
 
 * Ticker channel は、このチャネルから消費から一定時間毎に Unit が生成される特別なチャネル
 * ウィンドウ処理や時間に依存する処理に便利
@@ -256,3 +256,8 @@
   * それ以上の要素が必要でないことを示す
 * `TickerMode.FIXED_DELAY`
   * 要素間の固定の遅延を維持することができる
+
+#### Channels are fair
+
+* チャネルへの send, receive 操作は、複数のコルーチンからの呼び出し順番に関して公平
+  * FIFO
