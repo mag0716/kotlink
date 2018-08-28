@@ -261,3 +261,36 @@
 
 * チャネルへの send, receive 操作は、複数のコルーチンからの呼び出し順番に関して公平
   * FIFO
+
+### Shared mutable state and concurrency
+
+* コルーチンは、デフォルトの CommonPool のようなマルチスレッド Dispatcher を使用して同時に実行できる
+* 主な問題は、共有ミュータブルステートへのアクセスへの同期
+
+#### The problem
+
+* 複数のコルーチンから共有のミュータブルな値を操作すると同期されない
+* CPU の数によっては、同期されることもあるので注意
+
+#### Volatiles are of no help
+
+* `@Volatile`
+  * 動作が遅くなる上に同期はされない
+  * atomic な読み書きを保証するものなので、インクリメントなどには使えない
+
+#### Thread-safe data structures
+
+* スレッドでもコルーチンでも共通な解決方法はスレッドセーフなデータを利用すること
+  * 例：`AtomicInteger`
+* もっとも簡単な方法だが、複雑なステートなどには利用できない
+
+#### Thread confinement fine-grained
+
+* ステートへのアクセスを1つのスレッドのみで行う
+  * `newSingleThreadContext`
+* UIアプリケーションなどで使われる方法だが、動作は遅い
+
+#### Thread confinement coarse-grained
+
+* ？In practice, thread confinement is performed in large chunks, e.g. big pieces of state-updating business logic are confined to the single thread.
+* コルーチンの起動自体を1つのスレッドで制限するだけで正しく同期されるようになる
