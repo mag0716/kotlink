@@ -294,3 +294,13 @@
 
 * ？In practice, thread confinement is performed in large chunks, e.g. big pieces of state-updating business logic are confined to the single thread.
 * コルーチンの起動自体を1つのスレッドで制限するだけで正しく同期されるようになる
+
+#### Mutual exclusion
+
+* `Mutex` を利用することでも解決できる
+  * `synchronized` のようなもの
+  * `Mutex#lock`, `Mutex#unlock`
+    * 中断関数でスレッドをブロックしない
+  * `Mutex#withLock` を使えば、 lock と unlock を行なってくれる
+* Thread confinement fine-grained と同じで、動作は遅い
+* 定期的に変更する必要があるケースに適している
