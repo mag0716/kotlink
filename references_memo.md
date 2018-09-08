@@ -317,3 +317,22 @@
     * アクターはメッセージを受信するチャネル、プロデューサーは要素を送信するチャネル
 
 ### Select expression
+
+* `select` は複数の中断関数を await することが可能で、最初に有効になったものを選択することができる
+
+#### Selecting from channels
+
+* `receive` は一方のチャネルからしか受信できない
+* `select` は、`onReceive` を使うと、両方から同時に受信することができる
+
+#### Selecting on close
+
+* `select` の `onReceive` はチャネルが閉じられると失敗する
+* 代わりに、`onReceiveOrNull` を利用すると閉じられている時の動作を指定することができる
+  * 同時に選択可能な場合は、最初の処理が優先される
+  * チャネルが閉じられている場合は直ちに選択されてしまう
+
+#### Selecting to send
+
+* `select` は `onSend` を持っている
+  * メインの consumer での処理が消費しきれなかった時に、別の consumer に処理を渡すことができる
