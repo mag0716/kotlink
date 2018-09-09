@@ -336,3 +336,11 @@
 
 * `select` は `onSend` を持っている
   * メインの consumer での処理が消費しきれなかった時に、別の consumer に処理を渡すことができる
+
+#### Selecting deferred values
+
+* `onAwait` を使って deferred values を選択することができる
+
+#### ★Switch over a channel of deferred values
+
+* 次の deferred values を受け取るか、チャネルが閉じられるまで deferred values を待つ producer 関数
