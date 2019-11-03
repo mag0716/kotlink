@@ -21,10 +21,13 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // single API
         singleSuccessButton.setOnClickListener { singleApi(true) }
         singleFailedButton.setOnClickListener { singleApi(false) }
         singleWithContextSuccessButton.setOnClickListener { singleApiWithContext(true) }
         singleWithContextFailedButton.setOnClickListener { singleApiWithContext(false) }
+
+        // multiple API(sequential)
         multipleSequentialSuccessButton.setOnClickListener { multipleSequentialApi(true) }
         multipleSequentialFailedButton.setOnClickListener { multipleSequentialApi(false) }
         multipleSequentialWithContextSuccessButton.setOnClickListener {
@@ -34,6 +37,20 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         }
         multipleSequentialWithContextFailedButton.setOnClickListener {
             multipleSequentialApiWithContext(
+                false
+            )
+        }
+
+        // multiple API(parallel)
+        multipleParallelSuccessButton.setOnClickListener { multipleParallelApi(true) }
+        multipleParallelFailedButton.setOnClickListener { multipleParallelApi(false) }
+        multipleParallelWithContextSuccessButton.setOnClickListener {
+            multipleParallelApiWithContext(
+                true
+            )
+        }
+        multipleParallelWithContextFailedButton.setOnClickListener {
+            multipleParallelApiWithContext(
                 false
             )
         }
@@ -82,6 +99,32 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             val data1 = fetchDataWithContext(true)
             val data2 = fetchDataWithContext(isSuccess)
             Log.d(TAG, "multipleSequentialApi :$data1, $data2")
+        } catch (exception: Exception) {
+            Log.d(TAG, "multipleSequentialApi : catch $exception")
+        }
+    }
+
+    private fun multipleParallelApi(isSuccess: Boolean) = launch {
+        try {
+            // try - catch だけではクラッシュするので、coroutineScope で囲う必要がある
+            coroutineScope {
+                val data1 = async { fetchData(true) }
+                val data2 = async { fetchData(isSuccess) }
+                Log.d(TAG, "multipleSequentialApi :${data1.await()}, ${data2.await()}")
+            }
+        } catch (exception: Exception) {
+            Log.d(TAG, "multipleSequentialApi : catch $exception")
+        }
+    }
+
+    private fun multipleParallelApiWithContext(isSuccess: Boolean) = launch {
+        try {
+            // try - catch だけではクラッシュするので、coroutineScope で囲う必要がある
+            coroutineScope {
+                val data1 = async { fetchDataWithContext(true) }
+                val data2 = async { fetchDataWithContext(isSuccess) }
+                Log.d(TAG, "multipleSequentialApi :${data1.await()}, ${data2.await()}")
+            }
         } catch (exception: Exception) {
             Log.d(TAG, "multipleSequentialApi : catch $exception")
         }

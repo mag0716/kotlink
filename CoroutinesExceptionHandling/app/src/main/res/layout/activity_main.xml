@@ -1,56 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/singleSuccessButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Single Success" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/singleFailedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Single Failed" />
+        <Button
+            android:id="@+id/singleSuccessButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single Success" />
 
-    <Button
-        android:id="@+id/singleWithContextSuccessButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Single(withContext) Success" />
+        <Button
+            android:id="@+id/singleFailedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single Failed" />
 
-    <Button
-        android:id="@+id/singleWithContextFailedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Single(withContext) Failed" />
+        <Button
+            android:id="@+id/singleWithContextSuccessButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single(withContext) Success" />
 
-    <Button
-        android:id="@+id/multipleSequentialSuccessButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Multiple(Sequential) Success" />
+        <Button
+            android:id="@+id/singleWithContextFailedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single(withContext) Failed" />
 
-    <Button
-        android:id="@+id/multipleSequentialFailedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Multiple(Sequential) Failed" />
+        <Button
+            android:id="@+id/multipleSequentialSuccessButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple(Sequential) Success" />
 
-    <Button
-        android:id="@+id/multipleSequentialWithContextSuccessButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Multiple(withContext, Sequential) Success" />
+        <Button
+            android:id="@+id/multipleSequentialFailedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple(Sequential) Failed" />
 
-    <Button
-        android:id="@+id/multipleSequentialWithContextFailedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Multiple(withContext, Sequential) Failed" />
-</LinearLayout>
+        <Button
+            android:id="@+id/multipleSequentialWithContextSuccessButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple(withContext, Sequential) Success" />
+
+        <Button
+            android:id="@+id/multipleSequentialWithContextFailedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple(withContext, Sequential) Failed" />
+
+        <Button
+            android:id="@+id/multipleParallelSuccessButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple(Parallel) Success" />
+
+        <Button
+            android:id="@+id/multipleParallelFailedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple(Parallel) Failed" />
+
+        <Button
+            android:id="@+id/multipleParallelWithContextSuccessButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple(withContext, Parallel) Success" />
+
+        <Button
+            android:id="@+id/multipleParallelWithContextFailedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple(withContext, Parallel) Failed" />
+    </LinearLayout>
+</ScrollView>
