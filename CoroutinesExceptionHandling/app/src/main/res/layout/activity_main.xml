@@ -30,4 +30,27 @@
         android:layout_height="wrap_content"
         android:text="Single(withContext) Failed" />
 
+    <Button
+        android:id="@+id/multipleSequentialSuccessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multiple(Sequential) Success" />
+
+    <Button
+        android:id="@+id/multipleSequentialFailedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multiple(Sequential) Failed" />
+
+    <Button
+        android:id="@+id/multipleSequentialWithContextSuccessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multiple(withContext, Sequential) Success" />
+
+    <Button
+        android:id="@+id/multipleSequentialWithContextFailedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multiple(withContext, Sequential) Failed" />
 </LinearLayout>

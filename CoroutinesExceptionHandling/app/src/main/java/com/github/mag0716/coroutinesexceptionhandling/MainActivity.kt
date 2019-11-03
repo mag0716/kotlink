@@ -25,6 +25,18 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         singleFailedButton.setOnClickListener { singleApi(false) }
         singleWithContextSuccessButton.setOnClickListener { singleApiWithContext(true) }
         singleWithContextFailedButton.setOnClickListener { singleApiWithContext(false) }
+        multipleSequentialSuccessButton.setOnClickListener { multipleSequentialApi(true) }
+        multipleSequentialFailedButton.setOnClickListener { multipleSequentialApi(false) }
+        multipleSequentialWithContextSuccessButton.setOnClickListener {
+            multipleSequentialApiWithContext(
+                true
+            )
+        }
+        multipleSequentialWithContextFailedButton.setOnClickListener {
+            multipleSequentialApiWithContext(
+                false
+            )
+        }
     }
 
     override fun onResume() {
@@ -52,6 +64,26 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             Log.d(TAG, "singleApiWithContext : $data")
         } catch (exception: Exception) {
             Log.d(TAG, "singleApiWithContext: catch $exception")
+        }
+    }
+
+    private fun multipleSequentialApi(isSuccess: Boolean) = launch {
+        try {
+            val data1 = fetchData(true)
+            val data2 = fetchData(isSuccess)
+            Log.d(TAG, "multipleSequentialApi :$data1, $data2")
+        } catch (exception: Exception) {
+            Log.d(TAG, "multipleSequentialApi : catch $exception")
+        }
+    }
+
+    private fun multipleSequentialApiWithContext(isSuccess: Boolean) = launch {
+        try {
+            val data1 = fetchDataWithContext(true)
+            val data2 = fetchDataWithContext(isSuccess)
+            Log.d(TAG, "multipleSequentialApi :$data1, $data2")
+        } catch (exception: Exception) {
+            Log.d(TAG, "multipleSequentialApi : catch $exception")
         }
     }
 
